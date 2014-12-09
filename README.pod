@@ -90,8 +90,8 @@ As a result of that it's in a really rough state so the best thing before playin
 
 Building the JavaScript backend currently requires building the moar backend.
 
-perl Configure.pl --backends=moar,js
-make
+    perl Configure.pl --backends=moar,js
+    make
 
 To install the runtime into node_modules:
 
