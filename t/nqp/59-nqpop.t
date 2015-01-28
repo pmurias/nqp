@@ -2,7 +2,7 @@
 
 # Test nqp::op pseudo-functions.
 
-plan(108);
+plan(110);
 
 
 ok( nqp::add_i(5,2) == 7, 'nqp::add_i');
@@ -152,3 +152,6 @@ ok(!nqp::existspos(@arr, -2), 'existspos with missing pos');
 ok(!nqp::existspos(@arr, -100), 'existspos with absurd values');
 @arr[1] := NQPMu;
 ok(nqp::existspos(@arr, 1), 'existspos with still existing pos');
+
+ok(!nqp::isnull_s("foo"), 'test for isnull_s with a normal string');
+ok(nqp::isnull_s(nqp::null_s()), 'test for isnull_s with a null_s');
