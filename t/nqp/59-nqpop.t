@@ -2,7 +2,7 @@
 
 # Test nqp::op pseudo-functions.
 
-plan(122);
+plan(124);
 
 
 ok( nqp::add_i(5,2) == 7, 'nqp::add_i');
@@ -184,6 +184,7 @@ ok(nqp::eqat("foobar","foobarbaz", 0) == 0, "eqat with needle argument longer th
 
 {
     my $list := nqp::list("1","2","3","4","5");
-    nqp::setelems($list, 3);
-    ok(nqp::join(",", $list) eq '1,2,3')
+    my $ret := nqp::setelems($list, 3);
+    ok(nqp::join(",", $list) eq '1,2,3', 'nqp::setelems reduces list length properly');
+    ok(nqp::join(",", $ret) eq '1,2,3', 'nqp::setelems return value');
 }
